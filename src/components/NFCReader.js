@@ -15,17 +15,10 @@ const NFCReader = ({ onUUIDRead }) => {
         let buffer = '';
 
         while (true) {
-            console.log("awaiting value ...");
-
             const { value, done } = await reader.read();
-
-            console.log("received");
-
             if (done) {
-                console.log('Serial port closed.');
                 break;
             }
-            console.log(value);
             if (value) {
                 buffer += value;
 
@@ -36,9 +29,8 @@ const NFCReader = ({ onUUIDRead }) => {
 
                     if (line.includes('card:')) {
                         const uid = line.split(':')[1].trim();
-                        console.log('NFC UID detected:', uid);
 
-                        setUUID(uid);
+                        setUUID(uid);                        
                         onUUIDRead(uid);
                     }
                 }

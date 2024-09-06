@@ -1,9 +1,7 @@
 const API_BASE_URL = 'https://api.aperol.life'; 
 
 export const fetchUsers = async () => {
-  const response = await fetch(`${API_BASE_URL}/members`);
-  console.log(response);
-  
+  const response = await fetch(`${API_BASE_URL}/members`);  
   return response.json();
 };
 
@@ -13,7 +11,7 @@ export const saveUserUUIDAssociation = async (memberId, cardUid) => {
     headers: {
       'Content-Type': 'application/json',
     },
-    body: JSON.stringify({ memberId, cardUid }),
+    body: JSON.stringify({ member_id: memberId, card_uid: cardUid }),
   });
 
   if (!response.ok) {

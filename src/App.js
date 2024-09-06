@@ -15,8 +15,8 @@ function App() {
         <>
           <UserList onUserSelected={setSelectedUser} />
           {selectedUser && (
-            <UserAssociationForm uuid={uuid} name={selectedUser}/>
-          )}
+            <UserAssociationForm uid={uuid} userId={selectedUser}/>
+          )}    
         </>
       )}
     </div>

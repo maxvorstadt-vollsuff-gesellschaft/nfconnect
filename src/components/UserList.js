@@ -16,10 +16,11 @@ const UserList = ({ onUserSelected }) => {
   return (
     <div>
       <h2>Select User</h2>
-      <select onChange={(e) => onUserSelected(e.target.value)}>
+      <select onChange={(e) => {
+        onUserSelected(e.target.value)}}>
         <option value="">Select a user...</option>
         {users.map((user) => (
-          <option key={user.id} value={user.name}>
+          <option key={user.id} value={user.id}>
             {user.name}
           </option>
         ))}

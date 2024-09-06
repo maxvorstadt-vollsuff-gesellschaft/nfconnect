@@ -1,12 +1,13 @@
 import { saveUserUUIDAssociation } from '../services/api';
 
-const UserAssociationForm = ({ uid, name }) => {
+const UserAssociationForm = ({ uid, userId }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     try {
-      await saveUserUUIDAssociation(name, uid);
+      
+      await saveUserUUIDAssociation(userId, uid);
     } catch (error) {
       console.log('Failed to save the association.');
     }
